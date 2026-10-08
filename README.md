@@ -2,6 +2,14 @@
 
 用互動 3D 情境，讓騎士看懂停車的小動作如何影響隔壁。網站為繁體中文、純前端的靜態網站，無後端、資料庫、登入或付費 API。
 
+**公開網站：[機車有眉角](https://urash0519.github.io/scooter-unwritten-rules/)**
+
+## GitHub Pages 自動部署
+
+公開網站由 `.github/workflows/pages.yml` 部署。每次推送 `main`，GitHub Actions 會在 Docker Node.js 24 容器內執行 `npm ci`、TypeScript 檢查與 Vite 建置，再將 `dist/` 發布到 GitHub Pages。也可從倉庫 Actions 頁面的 **Deploy GitHub Pages → Run workflow** 手動重新部署。
+
+Pages 的建置來源需設為 **GitHub Actions**。Vite 使用相對資源路徑，因此 JavaScript、樣式、網站圖示與 3D 動態載入皆支援 `/scooter-unwritten-rules/` 子路徑。網站更新後可在 [Actions 部署紀錄](https://github.com/Urash0519/scooter-unwritten-rules/actions/workflows/pages.yml) 查看成功狀態與對應提交。
+
 ## 已實作
 
 - **中柱與側柱**：切換直立／向左傾斜的車身，觀察占用空間及鄰車退車。
@@ -136,4 +144,4 @@ git commit -m "Describe the change"
 git push origin main
 ```
 
-私人倉庫：[Urash0519/scooter-unwritten-rules](https://github.com/Urash0519/scooter-unwritten-rules)。網站目前提供本機 Docker 預覽，尚未發佈到公開網址。
+公開倉庫：[Urash0519/scooter-unwritten-rules](https://github.com/Urash0519/scooter-unwritten-rules)。公開網站：[GitHub Pages](https://urash0519.github.io/scooter-unwritten-rules/)，另保留本機 Docker 開發與正式版預覽。

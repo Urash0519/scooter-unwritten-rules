@@ -1,7 +1,7 @@
 import { expect, test, type Page } from "@playwright/test";
 
 async function openLab(page: Page) {
-  await page.goto("/");
+  await page.goto("./");
   await expect(page.locator("#viewport")).toHaveAttribute("data-ready", "true");
   await expect(page.locator("#scene-fallback")).toBeHidden();
 }
@@ -186,7 +186,7 @@ test("WebGL failure keeps educational content usable", async ({ browser }) => {
       return original.apply(this, args);
     } as typeof original;
   });
-  await page.goto("/");
+  await page.goto("./");
   await expect(page.locator("#scene-fallback")).toBeVisible();
   await expect(
     page.getByRole("button", { name: "播放退車演示" }),
